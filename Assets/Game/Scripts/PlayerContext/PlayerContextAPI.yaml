@@ -1,0 +1,15 @@
+header: ContextAPI
+contextType: IPlayerContext
+aggressiveInlining: true
+
+namespace: SampleGame
+className: PlayerContextAPI
+directory: Assets/Game/Scripts/PlayerContext
+ 
+imports:
+- Atomic.Entities
+- Modules.Common
+
+values:
+- MoveJoystick: Joystick
+- AttackJoystick: Joystick

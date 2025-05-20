@@ -1,0 +1,88 @@
+header: EntityAPI
+entityType: IEntity
+aggressiveInlining: true
+
+namespace: SampleGame
+className: EntityAPI
+directory: Assets/Game/Scripts/Entity/
+ 
+imports:
+- UnityEngine
+- Atomic.Elements
+- Modules.Gameplay
+
+tags:
+- Moveable
+- Damageable
+- Charactable
+- Pickupable
+
+values:
+
+# Main
+- GameObject: GameObject
+- Transform: Transform
+- Rigidbody: Rigidbody
+- Collider: Collider
+- Target: IEntity
+
+#Life
+- MaxHealth: IValue<int>
+- CurrentHealth: IReactiveVariable<int>
+- Lifetime: Cooldown
+- DestroyAction: IAction
+- DestroyEvent: IEvent
+- HealthEvent: IEvent<int>
+    
+#Movement  
+- MoveSpeed: IReactiveVariable<float>
+- MoveState: IReactiveVariable<bool>
+- MoveCondition: IExpression<bool>
+- MoveDirection: IReactiveVariable<Vector3>
+- ForwardDirection: IReactiveVariable<float>
+- MinTargetDistance: IReactiveVariable<float>
+
+#Rotation
+- AngularSpeed: IValue<float>
+- AngularDirection: IReactiveVariable<Vector3>
+- RotateCondition: IExpression<bool>
+
+#Combat
+- Damage: IReactiveVariable<int>
+- CurrentWeapon: IReactiveVariable<IEntity>
+- CurrentKills: IReactiveVariable<int>
+
+#Fire
+- FireCondition: IExpression<bool>
+- FireEvent: IEvent
+- InputAction: IAction
+- FireAction: IAction
+- FirePoint: Transform
+- FireState: IVariable<bool>
+
+#Visual
+- Animator: Animator
+
+#Sound
+- AudioSource: AudioSource
+
+#Physics
+- Collision: CollisionEventReceiver
+- Trigger: TriggerEventReceiver
+
+#Weapon
+- GunStore: IReactiveVariable<int>
+- WeaponPrefab: SceneEntity
+- WeaponFireAction: IAction
+- WeaponFireCondition: IExpression<bool>
+- WeaponType: IValue<WeaponType>
+- DetectRadius: IValue<float>
+- MaxBulletSpread: IValue<Vector3>
+
+#Item
+- PickUpEvent: IEvent
+- ItemAction: IAction<IEntity>
+- ItemDestroyAction: IAction
+
+#Bullet
+- BulletDestroyAction: IAction
